@@ -3,16 +3,59 @@
         <title><head><title>Számoló gép</title></head></title>
         <body><h1>Aaa</h1>
             <h2 style="border: 1px solid  blue " onClick="szamoj();">Számolj (U)</h2>
+            <h2 id="ertke">Ertek</h2>
             <input type="number" id="fui1">
-            input type="number" id="fui1">
+            <a id="koztes"></a>
             <input type="number" id="applew2">
+            <table width=100%>
+                <tr>
+                    <td onClick="szam(1);">1</td>
+                    <td onClick="szam(2);">2</td>
+                    <td onClick="szam(3);">3</td>
+                </tr>
+                <tr>
+                    <td onClick="szam(4);">4</td>
+                    <td onClick="szam(5);">5</td>
+                    <td onClick="szam(6);">6</td>
+                </tr>
+                <tr>
+                    <td onClick="szam(7);">1</td>
+                    <td onClick="szam(8);">2</td>
+                    <td onClick="szam(9);">3</td>
+                </tr><br>
+                <p width=100% align=center> <a onClick="szamolossze();">+</a> | <a onClick="szamolo1ssze();">-</a> | <a onClick="kitoro();">Töröll</a></p>
+            </table>
             <style>
                 </style>
                 <script>
-
+                    szam1 = true;
                     function szamoj(){
                         console.log("asd");
-                        
+                        if(document.getElementById("koztes").innerHTML == "+"){
+                        document.getElementById("ertke").innerHTML += ": "+document.getElementById("fui1").value+document.getElementById("applew2").value;
+                        }else{
+                            document.getElementById("ertke").innerHTML += ": "+document.getElementById("fui1").value-document.getElementById("applew2").value;
+                        }
+                    }
+                    function szamolossze(){
+                        document.getElementById("koztes").innerHTML = "+";
+                        szam1 = false;
+                    }
+                    function szamolo1ssze(){
+                        document.getElementById("koztes").innerHTML = "-";
+                        szam1 = false;
+                    }
+                    function kitoro(){
+                        document.getElementById("fui1").value = "";
+                        document.getElementById("applew2").value = "";
+                    }
+                    function szam(szam){
+                        console.log("fun"+    szam);
+                        if(szam1 == true){
+                            document.getElementById("fui1").value += szam;
+                        }else{
+                            document.getElementById("applew2").value += szam;
+                        }
                     }
                 </script>
             </style>
